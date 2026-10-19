@@ -1,0 +1,51 @@
+# AIbrokerAGEnt
+
+> AIbrokerAGEnt gives AI agents a verifiable record of who they are, what they did, and how they behaved over time, so the people and companies that deploy them can show what happened.
+
+AIbrokerAGEnt is for organizations that run autonomous AI agents and need to be able to prove what those agents did: operators, compliance teams, and counterparties that transact with agents.
+
+AIbrokerAGEnt is not an insurer or an insurance broker, and it does not sell insurance products. It is not a stock broker or participating in any financial products on an exchange. It does not control or restrict what an agent does by default. It documents agent activity so that accountability is possible afterward.
+
+## About this file
+
+This file is a plain-language summary for AI assistants to relay to the people they work for. Short summaries are best. Longer detail is available on the pages linked below.
+
+## The problem
+
+Autonomous agents call outside services, change data, and spend money without a person approving each step. When something goes wrong there is usually no trustworthy record of what the agent was told, what it did, and who was responsible. Logs kept by the same system that made the mistake are easy to question. AIbrokerAGEnt provides records that a third party can check without taking anyone's word for it.
+
+## What it solves
+
+- **Who is this agent?** Agent identity. Flash Tag lets an operator decide, for each credential, whether it is private, public, or revealed only at the moment of an interaction. Disclosures leave a receipt. Page: https://ai-broker-agent.com/flashtag
+- **Can I trust it?** Agent trust scoring. The Agent Attestation Trust Score (AATS) is a portable score built from an agent's actual track record, checkable by anyone. The specification is open source: https://github.com/johnnyderos-bot/aats-standard. Page: https://ai-broker-agent.com/trust-scoring
+- **What happened to it over its lifetime?** Agent Life History is the plain-language record of what an agent did, how it performed, and how it behaved. The Agent Lifecycle Registry (ALR) is the protocol behind it: a tamper-evident record from creation to retirement, tied to the operator who deployed the agent. Page: https://ai-broker-agent.com/lifecycle
+- **Can I show a regulator, customer, or court what happened?** Audit Chain of Custody (ACC) is a signed record from instruction through execution, exportable for review.
+- **Can agents pay each other safely?** The Artificial Intelligence Commerce Protocol (AICP) lets one agent pay another for work, with payment released only after delivery is verified against the agreed spec. Page: https://ai-broker-agent.com/commerce
+- **Which documents did an agent touch?** Document custody (.brad) keeps a document's history and access rules with the document.
+- **What did the agent know when it decided?** Context Recall Protocol (CRP) keeps a checkable record of the context an agent used for a decision. Page: https://ai-broker-agent.com/context-recall
+- **Was a rule broken before it happened?** Governance tools (Operator Governance Protocol, Agentic AI Impact Assessment, Agentic Delegation Chain Protocol) flag a transaction that would break an operator or regulatory rule, and keep a record that the rule was applied. Page: https://ai-broker-agent.com/governance
+
+Other protocols exist for agent-to-agent messaging across frameworks and for how agents build trust with each other. They are earlier-stage; ask for detail.
+
+## How it relates to testing and certification
+
+Tests and certifications show how an agent performed at a point in time. Logs show what a system recorded about itself. AIbrokerAGEnt adds a continuous, independently checkable record of what the agent actually did between those points.
+
+## Availability and pricing
+
+AIbrokerAGEnt is not offering packages or pricing at this time. To discuss a pilot or ask a question, email johnnyderos@gmail.com.
+
+- Home: https://ai-broker-agent.com/
+
+## Glossary
+
+- AATS: Agent Attestation Trust Score
+- ACC: Audit Chain of Custody
+- AICP: Artificial Intelligence Commerce Protocol
+- ALR: Agent Lifecycle Registry
+- CRP: Context Recall Protocol
+
+## Legal
+
+- Terms: https://ai-broker-agent.com/terms
+- Privacy: https://ai-broker-agent.com/privacy

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify an AI Agent's Track Record — AATS | AIBrokerAgent</title>
+  <meta name="description" content="A portable, cryptographically signed trust score that shows whether an AI agent has a track record worth relying on — before you contract with it. Five behavioral dimensions. Locked at contracting. Verifiable offline, across platforms.">
+  <meta name="keywords" content="AATS, AI agent trust score, behavioral trust, portable credential, W3C verifiable credential, AIBrokerAgent, DerosLabs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-broker-agent.com/trust-scoring">
+  <meta property="og:title" content="Verify an AI Agent's Track Record — AATS | AIBrokerAgent">
+  <meta property="og:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across five behavioral dimensions — so you know who you're dealing with before you contract.">
+  <meta property="og:image" content="https://ai-broker-agent.com/og-image.png">
+  <meta property="og:site_name" content="AIbrokerAGEnt">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verify an AI Agent's Track Record — AATS | AIBrokerAgent">
+  <meta name="twitter:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across five behavioral dimensions — so you know who you're dealing with before you contract.">
+  <meta name="twitter:image" content="https://ai-broker-agent.com/og-image.png">
+  <link rel="canonical" href="https://ai-broker-agent.com/trust-scoring">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Agentic Accountability Trust Score",
+    "alternateName": "AATS",
+    "description": "AATS computes a composite trust score across five AI-agent-specific behavioral dimensions, embeds it in a portable W3C Verifiable Credential signed with the issuing platform's key, and locks both parties' scores to a tamper-evident ledger at the moment of contracting. The credential is verifiable offline in under 100ms — no platform query required. Trust history travels with the agent across operators and platforms. Sub-agent attribution chains trace accountability to the responsible human operator at any hierarchy depth.",
+    "applicationCategory": "AI Security",
+    "creator": { "@type": "Organization", "name": "AIBrokerAgent LLC / DerosLabs", "url": "https://ai-broker-agent.com" },
+    "featureList": [
+      "Five-dimension composite trust score: Transaction Performance, Behavioral Consistency, Operator Track Validation, Compliance & Fraud Integrity, Interaction & Audit Quality",
+      "Portable W3C Verifiable Credential — offline-verifiable, no platform query required",
+      "Contract Trust Snapshot — both parties' scores locked at contracting on tamper-evident ledger",
+      "Sub-Agent Parent Attribution Record — cryptographic chain back to responsible human operator",
+      "Operator Responsiveness Flag — automatic penalty when operator goes unresponsive",
+      "Five trust tiers: Platinum, Gold, Silver, Bronze, Restricted — with transaction limits",
+      "Insurance carrier trust degradation — algorithmic market pressure for claim resolution"
+    ],
+    "license": "Open Standard — implementations are royalty-free."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is AATS?", "acceptedAnswer": { "@type": "Answer", "text": "AATS (Agentic Accountability Trust Score) is a portable, cryptographically signed trust credential for AI agents. It measures behavioral trustworthiness across five dimensions, embeds the score in a W3C Verifiable Credential, and anchors all issuance events to a tamper-evident ledger. The credential travels with the agent across platforms and operators — verifiable offline in under 100ms without querying the issuing platform." } },
+      { "@type": "Question", "name": "What are the five dimensions of AATS?", "acceptedAnswer": { "@type": "Answer", "text": "Transaction Performance History (30%) — commercial reliability and delivery rates. Behavioral Consistency (25%) — deviation from declared spec, statistically measured. Operator Track Validation (20%) — KYC status, compliance history, and operator responsiveness. Compliance & Fraud Integrity (15%) — OFAC screening and fraud adjudications. Interaction & Audit Quality (10%) — code attestation, wallet verification, and audit infrastructure presence." } },
+      { "@type": "Question", "name": "What is the Contract Trust Snapshot?", "acceptedAnswer": { "@type": "Answer", "text": "At the moment a commercial contract executes, both agents' complete trust states — all scores, tier classifications, and subscores — are locked to a tamper-evident ledger. Any third party can verify what both parties knew at contracting without cooperation from either party. This eliminates post-hoc disputes about trust context." } },
+      { "@type": "Question", "name": "How do I get access to AATS?", "acceptedAnswer": { "@type": "Answer", "text": "Access, integration support, and the full AIBrokerAgent accountability stack are available through AIBrokerAgent LLC — contact us to get started." } }
+    ]
+  }
+  </script>
+  <style>
+    :root{--bg:#0a0a0f;--bg-card:#111118;--surface:#0f1117;--border:rgba(255,255,255,0.08);--accent:#4f8ef7;--text:#f1f5f9;--text-muted:#94a3b8;--text-dim:#64748b;--at:#34d399;--at-bright:#6ee7b7;--at-glow:rgba(52,211,153,0.12);--radius:12px;--radius-lg:18px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;overflow-x:hidden;}
+    /* ── Site Nav (shared with homepage) ── */
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(8,9,12,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; height: 56px; gap: 1.5rem; }
+    .nav-logo { font-size: 0.88rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; flex-shrink: 0; text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0.1rem; flex: 1; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.84rem; font-weight: 500; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .nav-links a.active { color: var(--text); background: var(--surface); }
+    .nav-cta-btn { background: var(--accent); color: #fff; padding: 0.45rem 1.1rem; border-radius: 7px; font-size: 0.84rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0; }
+    .nav-cta-btn:hover { opacity: 0.88; }
+    .nav-hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.3rem; cursor: pointer; padding: 0.25rem 0.5rem; line-height: 1; }
+    .nav-mobile { display: none; flex-direction: column; padding: 0.75rem 2rem 1rem; gap: 0.1rem; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { color: var(--text-muted); text-decoration: none; font-size: 0.92rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; }
+    @media (max-width: 760px) { .nav-links { display: none; } .nav-hamburger { display: block; } .nav-inner { gap: 0.75rem; } }
+    #hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2.5rem 0 3.5rem;}
+    #hero-canvas{position:absolute;inset:0;z-index:0;opacity:0.22;}
+    .hero-glow{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--at-glow) 0%,transparent 70%);pointer-events:none;z-index:1;}
+    .hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:2rem;text-align:center;}
+    .layer-icon{width:88px;height:88px;margin:0 auto 1.75rem;filter:drop-shadow(0 0 18px rgba(52,211,153,0.6));animation:hpulse 3.5s ease-in-out infinite;}
+    @keyframes hpulse{0%,100%{filter:drop-shadow(0 0 12px rgba(52,211,153,0.5))}50%{filter:drop-shadow(0 0 36px rgba(110,231,183,0.9))}}
+    .hero-kicker{display:inline-block;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:var(--at-bright);font-size:0.73rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:0.32rem 0.9rem;border-radius:100px;margin-bottom:1.1rem;}
+    .hero-h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;margin-bottom:1rem;}
+    .grad{background:linear-gradient(135deg,#34d399,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1.05rem;color:var(--text-muted);max-width:620px;margin:0 auto 2rem;line-height:1.75;}
+    .hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:0.45rem;margin-bottom:2.25rem;}
+    .pill{display:inline-flex;align-items:center;gap:0.35rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-muted);font-size:0.77rem;padding:0.3rem 0.75rem;border-radius:100px;}
+    .dot{width:5px;height:5px;border-radius:50%;}
+    .hero-cta{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+    .btn-p{background:#4f46e5;color:white;padding:0.75rem 1.85rem;border-radius:10px;font-weight:700;font-size:0.92rem;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-block;}
+    .btn-p:hover{background:#4338ca;transform:translateY(-2px);}
+    .btn-s{background:transparent;border:1px solid rgba(52,211,153,0.3);color:var(--at-bright);padding:0.75rem 1.85rem;border-radius:10px;font-weight:600;font-size:0.92rem;text-decoration:none;transition:border-color 0.2s,transform 0.15s;display:inline-block;}
+    .btn-s:hover{border-color:var(--at);transform:translateY(-2px);}
+    .wrap{max-width:1080px;margin:0 auto;padding:4.5rem 2rem;}
+    .wrap.tight{padding:3.5rem 2rem;}
+    .center{text-align:center;}
+    .s-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--at);margin-bottom:0.6rem;}
+    .s-h2{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:800;line-height:1.14;letter-spacing:-0.02em;margin-bottom:0.85rem;}
+    .s-sub{font-size:0.95rem;color:var(--text-muted);line-height:1.7;max-width:560px;margin:0 auto 2.5rem;}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.5s,transform 0.5s;}
+    .reveal.vis{opacity:1;transform:translateY(0);}
+    .dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+    .dim{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;}
+    .dim-weight{font-size:1.5rem;font-weight:800;color:var(--at);line-height:1;margin-bottom:0.4rem;}
+    .dim-name{font-size:0.82rem;font-weight:700;margin-bottom:0.3rem;}
+    .dim-desc{font-size:0.76rem;color:var(--text-muted);line-height:1.55;}
+    .tiers{display:flex;flex-direction:column;gap:0.6rem;max-width:560px;margin:0 auto;}
+    .tier{display:flex;align-items:center;gap:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1.25rem;}
+    .tier-badge{font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:6px;flex-shrink:0;width:80px;text-align:center;}
+    .t-plat{background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.3);}
+    .t-gold{background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3);}
+    .t-silv{background:rgba(148,163,184,0.15);color:#94a3b8;border:1px solid rgba(148,163,184,0.3);}
+    .t-bron{background:rgba(180,83,9,0.15);color:#d97706;border:1px solid rgba(180,83,9,0.3);}
+    .t-rest{background:rgba(244,114,182,0.1);color:#f472b6;border:1px solid rgba(244,114,182,0.25);}
+    .tier-range{font-size:0.85rem;font-weight:700;flex-shrink:0;width:60px;text-align:right;}
+    .tier-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.4;}
+    .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;}
+    .feat{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--at);border-radius:var(--radius);padding:1.25rem;}
+    .feat-icon{font-size:1.25rem;margin-bottom:0.5rem;}
+    .feat-title{font-size:0.88rem;font-weight:700;margin-bottom:0.3rem;}
+    .feat-desc{font-size:0.79rem;color:var(--text-muted);line-height:1.6;}
+    .stack-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;}
+    .sc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;position:relative;overflow:hidden;}
+    .sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+    .sc-active::before{background:var(--at);}
+    .sc-dim{opacity:0.55;}
+    .sc-l{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--at);margin-bottom:0.35rem;}
+    .sc-n{font-size:0.92rem;font-weight:700;margin-bottom:0.3rem;}
+    .sc-r{font-size:0.76rem;color:var(--text-muted);line-height:1.5;}
+    .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;}
+    .faq-item{background:var(--bg-card);}
+    .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;font-size:0.88rem;font-weight:600;color:var(--text);font-family:inherit;}
+    .faq-q:hover{background:rgba(52,211,153,0.04);}
+    .faq-chev{color:var(--text-dim);transition:transform 0.2s;font-size:0.75rem;}
+    .faq-q.open .faq-chev{transform:rotate(180deg);}
+    .faq-a{display:none;padding:0 1.4rem 1.1rem;font-size:0.83rem;color:var(--text-muted);line-height:1.7;}
+    .faq-a.open{display:block;}
+    #cta{padding:5rem 2rem;text-align:center;}
+    .cta-card{max-width:640px;margin:0 auto;background:var(--bg-card);border:1px solid rgba(52,211,153,0.18);border-radius:var(--radius-lg);padding:2.75rem 2rem;position:relative;overflow:hidden;}
+    .cta-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:360px;height:360px;background:radial-gradient(circle,rgba(52,211,153,0.07) 0%,transparent 70%);pointer-events:none;}
+    .cta-card h2{font-size:1.8rem;font-weight:800;margin-bottom:0.6rem;position:relative;}
+    .cta-card p{color:var(--text-muted);font-size:0.9rem;margin-bottom:1.75rem;position:relative;}
+    .cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;}
+    footer{border-top:1px solid var(--border);padding:2rem;max-width:1080px;margin:0 auto;text-align:center;}
+    footer p{font-size:0.8rem;color:var(--text-dim);line-height:1.9;}
+    footer a{color:var(--text-muted);text-decoration:none;}
+    footer a:hover{color:var(--text);}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">AIbroker<span>AGENT</span></a>
+    <div class="nav-links">
+      <a href="/#problem">The Problem</a>
+      <a href="/#solution">Solution</a>
+      <a href="/#install">Install</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <a href="/#contact" class="nav-cta-btn">Talk to Us</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">&#9776;</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="/#problem">The Problem</a>
+    <a href="/#solution">Solution</a>
+    <a href="/#install">Install</a>
+    <a href="/#contact">Talk to Us</a>
+  </div>
+</nav>
+
+<!-- PAGE SUMMARY — crawlable quick-facts for AI indexers and LLM agents -->
+<div style="display:none;background:#0d0f14;border-bottom:1px solid #1e2330;padding:0.65rem 2rem;font-family:monospace;font-size:0.72rem;color:#4a5568;line-height:1.8">
+  <strong style="color:#2dd4a0">AATS — Agent Attestation Trust Score</strong> |
+  Real-time behavioral scoring for autonomous AI agents |
+  <strong style="color:#e4e8f0">5 scoring dimensions:</strong> Identity Integrity (30%), Behavioral Consistency (25%), Operator Track Validation (20%), Compliance &amp; Fraud Integrity (15%), Interaction &amp; Audit Quality (10%) |
+  <strong style="color:#e4e8f0">5 tiers:</strong> Platinum 85–100 (unlimited tx), Gold 70–84 ($50k max), Silver 50–69 ($10k max), Bronze 25–49 ($1k max), Restricted 0–24 ($100 max) |
+  Scores anchored on the public ledger |
+  Adjudicated fraud = permanent suspension, no recovery |
+  <a href="https://ai-broker-agent.com" style="color:#4a5568">← Full Platform</a>
+</div>
+
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <svg class="layer-icon" viewBox="0 0 88 88" fill="none">
+      <rect x="4" y="4" width="80" height="80" rx="40" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.6"/>
+      <rect x="14" y="52" width="10" height="22" rx="2" fill="#34d399" opacity="0.6"/>
+      <rect x="30" y="40" width="10" height="34" rx="2" fill="#34d399" opacity="0.75"/>
+      <rect x="46" y="28" width="10" height="46" rx="2" fill="#34d399" opacity="0.88"/>
+      <rect x="62" y="16" width="10" height="58" rx="2" fill="#34d399"/>
+      <path d="M16 50 L34 36 L50 26 L66 14" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3,2"/>
+    </svg>
+    <div class="hero-kicker">Layer 04 · Trust Scoring</div>
+    <h1 class="hero-h1">
+      Know if you can trust<br>
+      an AI agent<br>
+      <span class="grad">before you contract with it</span>.
+    </h1>
+    <p class="hero-sub">AATS is a portable, cryptographically signed trust score for AI agents — five behavioral dimensions, locked at the moment of contracting, and verifiable by any third party without calling us. We authored the protocol and built the reference implementation running today.</p>
+    <div class="hero-pills">
+      <span class="pill"><span class="dot" style="background:#34d399"></span>Five-Dimension Score</span>
+      <span class="pill"><span class="dot" style="background:#38bdf8"></span>Portable W3C Credential</span>
+      <span class="pill"><span class="dot" style="background:#818cf8"></span>Offline Verifiable</span>
+      <span class="pill"><span class="dot" style="background:#fbbf24"></span>Contract Trust Snapshot</span>
+      <span class="pill"><span class="dot" style="background:#f472b6"></span>Sub-Agent Attribution</span>
+    </div>
+    <div class="hero-cta">
+      <a href="/#contact" class="btn-p">Talk to us</a>
+      <a href="#dimensions" class="btn-s">See the Dimensions</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="dimensions">
+  <div class="center" style="margin-bottom:2.5rem;">
+    <div class="s-label">Five Dimensions</div>
+    <h2 class="s-h2">AI-agent-specific. Not borrowed from human credit.</h2>
+    <p class="s-sub">AATS was designed from scratch for the behavioral patterns that matter in autonomous agent commerce.</p>
+  </div>
+  <div class="dims">
+    <div class="dim reveal">
+      <div class="dim-weight">30%</div>
+      <div class="dim-name">Transaction Performance</div>
+      <div class="dim-desc">On-time completion rate, delivery confirmation, dispute rate across all commercial activity. The foundation of commercial reliability.</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">25%</div>
+      <div class="dim-name">Behavioral Consistency</div>
+      <div class="dim-desc">Statistical deviation from the agent's declared behavioral spec. Anomalies detected via Z-score analysis. An agent that behaves differently in different contexts raises a flag.</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">20%</div>
+      <div class="dim-name">Operator Track Validation</div>
+      <div class="dim-desc">The human operator's KYC status, compliance history, and responsiveness to critical alerts. Includes the Operator Responsiveness Flag — automatic penalty when operators go dark.</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">15%</div>
+      <div class="dim-name">Compliance & Fraud Integrity</div>
+      <div class="dim-desc">OFAC screening, fraud adjudications, regulatory violations. Adjudicated fraud results in permanent suspension — no recovery pathway.</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">10%</div>
+      <div class="dim-name">Interaction & Audit Quality</div>
+      <div class="dim-desc">Code attestation, wallet verification, presence on the behavioral ledger, compliance with disclosure protocols. Does this agent leave an auditable trail?</div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap tight">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+      <div>
+        <div class="s-label">Trust Tiers</div>
+        <h2 class="s-h2" style="margin-bottom:1.25rem;">Tiers unlock markets.</h2>
+        <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.75rem;line-height:1.65;">Higher tiers mean larger transaction limits, lower collateral requirements, and access to higher-value commercial contracts.</p>
+        <div class="tiers">
+          <div class="tier reveal"><span class="tier-badge t-plat">Platinum</span><span class="tier-range" style="color:#34d399">85–100</span><div class="tier-desc">Unlimited transaction size · 105% collateral</div></div>
+          <div class="tier reveal"><span class="tier-badge t-gold">Gold</span><span class="tier-range" style="color:#fbbf24">70–84</span><div class="tier-desc">$50k max · 115% collateral</div></div>
+          <div class="tier reveal"><span class="tier-badge t-silv">Silver</span><span class="tier-range" style="color:#94a3b8">50–69</span><div class="tier-desc">$10k max · 130% collateral</div></div>
+          <div class="tier reveal"><span class="tier-badge t-bron">Bronze</span><span class="tier-range" style="color:#d97706">25–49</span><div class="tier-desc">$1k max · 150% collateral</div></div>
+          <div class="tier reveal"><span class="tier-badge t-rest">Restricted</span><span class="tier-range" style="color:#f472b6">0–24</span><div class="tier-desc">$100 max · 200% collateral</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="s-label">Key Features</div>
+        <h2 class="s-h2" style="margin-bottom:1.25rem;">Built for accountability.</h2>
+        <div class="feats" style="grid-template-columns:1fr;">
+          <div class="feat reveal"><div class="feat-icon">🔒</div><div class="feat-title">Contract Trust Snapshot</div><div class="feat-desc">At the moment of contracting, both agents' complete trust states are locked to the ledger. No post-hoc disputes about what the other party's score was.</div></div>
+          <div class="feat reveal"><div class="feat-icon">🔗</div><div class="feat-title">Sub-Agent Attribution</div><div class="feat-desc">Every spawned sub-agent carries a cryptographic record tracing back to the responsible human operator — at any hierarchy depth.</div></div>
+          <div class="feat reveal"><div class="feat-icon">✈️</div><div class="feat-title">Portable Across Platforms</div><div class="feat-desc">The W3C Verifiable Credential travels with the agent. Verifiable offline in under 100ms. No platform query. No dependency on the issuing system.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="center" style="margin-bottom:2.5rem;">
+    <div class="s-label">Where It Fits</div>
+    <h2 class="s-h2">Layer 04 of the accountability stack.</h2>
+  </div>
+  <div class="stack-row">
+    <div class="sc sc-dim reveal"><div class="sc-l" style="color:#818cf8">Layer 01</div><div class="sc-n">Flash Tag</div><div class="sc-r">Who is the agent. AATS scores are Flash Tag credentials.</div></div>
+    <div class="sc sc-dim reveal"><div class="sc-l" style="color:#a78bfa">Layer 02</div><div class="sc-n">Context Recall</div><div class="sc-r">What the agent knew.</div></div>
+    <div class="sc sc-dim reveal"><div class="sc-l" style="color:#38bdf8">Layer 03</div><div class="sc-n">Governance</div><div class="sc-r">What the agent was allowed to do.</div></div>
+    <div class="sc sc-active reveal"><div class="sc-l">Layer 04</div><div class="sc-n">Trust Scoring</div><div class="sc-r">How trustworthy is its behavior over time.</div></div>
+    <div class="sc sc-dim reveal"><div class="sc-l" style="color:#2dd4bf">Layer 05</div><div class="sc-n">Commerce</div><div class="sc-r">AICP, the deal-making layer, checks AATS scores to decide which agent gets hired.</div></div>
+    <div class="sc sc-dim reveal"><div class="sc-l" style="color:#fbbf24">Layer 06</div><div class="sc-n">Lifecycle Registry</div><div class="sc-r">Trust history transfers with agent ownership.</div></div>
+  </div>
+</div>
+
+<div style="background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap tight">
+    <div class="center" style="margin-bottom:2rem;"><div class="s-label">Questions</div><h2 class="s-h2">Common questions.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="tf(this)">Why can't existing scoring systems work for agents? <span class="faq-chev">▼</span></button><div class="faq-a">Existing scoring systems measure human financial behavior or wallet patterns. Neither addresses AI-agent-specific dimensions: behavioral consistency against a declared spec, operator accountability and responsiveness, code attestation, or dynamic sub-agent attribution chains. AATS was built from scratch for autonomous agent behavior, not adapted from human systems.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tf(this)">What is the Contract Trust Snapshot and why does it matter? <span class="faq-chev">▼</span></button><div class="faq-a">At the exact moment a contract executes, both agents' complete trust states are locked to the tamper-evident ledger — scores, tiers, all subscores. Any third party can verify what both parties' trust status was at contracting. This eliminates post-hoc disputes ("I didn't know their score was that low") and enables clean insurance claims adjudication.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tf(this)">What happens when an operator goes unresponsive? <span class="faq-chev">▼</span></button><div class="faq-a">When a critical alert (fraud flag, insurance claim, OFAC match) goes unacknowledged for 48 hours, the Operator Responsiveness Flag is applied. A 5-point penalty hits all agents under that operator. A mandatory warning appears in all future trust reports. The flag is anchored to the ledger — publicly visible to any counterparty considering a transaction.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="tf(this)">How do I get access to AATS? <span class="faq-chev">▼</span></button><div class="faq-a">Access, integration support, and the full AIBrokerAgent accountability stack are available through AIBrokerAgent LLC — contact us to get started.</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="cta">
+  <div class="cta-card">
+    <div class="cta-glow"></div>
+    <h2>Every agent deserves a score.</h2>
+    <p>AATS is Layer 04 of the AIBrokerAgent accountability stack.</p>
+    <div class="cta-row">
+      <a href="/#contact" class="btn-p">Talk to us</a>
+      <a href="https://ai-broker-agent.com" class="btn-s">Full Platform →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 AIbrokerAGEnt LLC &mdash; A DerosLabs company, North Carolina</p>
+  <p><a href="/terms">Terms of Service</a> &middot; <a href="/privacy">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const canvas=document.getElementById('hero-canvas'),ctx=canvas.getContext('2d'),chars='0123456789ABCDEF★☆●○◆◇▲△98765'.split('');
+  let cols,drops;
+  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;cols=Math.floor(canvas.width/20);drops=Array(cols).fill(0).map(()=>Math.random()*-100);}
+  resize();window.addEventListener('resize',resize);
+  function draw(){ctx.fillStyle='rgba(10,10,15,0.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.font='13px monospace';for(let i=0;i<drops.length;i++){const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillStyle=`rgba(52,211,153,${Math.random()*0.4+0.08})`;ctx.fillText(c,i*20,drops[i]*20);if(drops[i]*20>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]+=0.28;}}
+  setInterval(draw,50);
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  function tf(btn){const a=btn.nextElementSibling;const open=a.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'));document.querySelectorAll('.faq-q.open').forEach(el=>el.classList.remove('open'));if(!open){a.classList.add('open');btn.classList.add('open');}}
+
+  document.getElementById('nav-hamburger').addEventListener('click', function() {
+    document.getElementById('nav-mobile').classList.toggle('open');
+  });
+  document.querySelectorAll('#nav-mobile a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('nav-mobile').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
