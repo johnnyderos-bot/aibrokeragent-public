@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verify an AI Agent's Track Record — AATS | AIBrokerAgent</title>
-  <meta name="description" content="A portable, cryptographically signed trust score that shows whether an AI agent has a track record worth relying on — before you contract with it. Five behavioral dimensions. Locked at contracting. Verifiable offline, across platforms.">
+  <meta name="description" content="A portable, cryptographically signed trust score that shows whether an AI agent has a track record worth relying on — before you contract with it. Six behavioral dimensions. Locked at contracting. Verifiable offline, across platforms.">
   <meta name="keywords" content="AATS, AI agent trust score, behavioral trust, portable credential, W3C verifiable credential, AIBrokerAgent, DerosLabs">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ai-broker-agent.com/trust-scoring">
   <meta property="og:title" content="Verify an AI Agent's Track Record — AATS | AIBrokerAgent">
-  <meta property="og:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across five behavioral dimensions — so you know who you're dealing with before you contract.">
+  <meta property="og:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across six behavioral dimensions — so you know who you're dealing with before you contract.">
   <meta property="og:image" content="https://ai-broker-agent.com/og-image.png">
   <meta property="og:site_name" content="AIbrokerAGEnt">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Verify an AI Agent's Track Record — AATS | AIBrokerAgent">
-  <meta name="twitter:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across five behavioral dimensions — so you know who you're dealing with before you contract.">
+  <meta name="twitter:description" content="A portable, cryptographically signed trust score for AI agents, verifiable offline across six behavioral dimensions — so you know who you're dealing with before you contract.">
   <meta name="twitter:image" content="https://ai-broker-agent.com/og-image.png">
   <link rel="canonical" href="https://ai-broker-agent.com/trust-scoring">
   <script type="application/ld+json">
@@ -23,11 +23,11 @@
     "@type": "SoftwareApplication",
     "name": "Agentic Accountability Trust Score",
     "alternateName": "AATS",
-    "description": "AATS computes a composite trust score across five AI-agent-specific behavioral dimensions, embeds it in a portable W3C Verifiable Credential signed with the issuing platform's key, and locks both parties' scores to a tamper-evident ledger at the moment of contracting. The credential is verifiable offline in under 100ms — no platform query required. Trust history travels with the agent across operators and platforms. Sub-agent attribution chains trace accountability to the responsible human operator at any hierarchy depth.",
+    "description": "AATS computes a composite trust score across six AI-agent-specific behavioral dimensions, embeds it in a portable W3C Verifiable Credential signed with the issuing platform's key, and locks both parties' scores to a tamper-evident ledger at the moment of contracting. The credential is verifiable offline in under 100ms — no platform query required. Trust history travels with the agent across operators and platforms. Sub-agent attribution chains trace accountability to the responsible human operator at any hierarchy depth.",
     "applicationCategory": "AI Security",
     "creator": { "@type": "Organization", "name": "AIBrokerAgent LLC / DerosLabs", "url": "https://ai-broker-agent.com" },
     "featureList": [
-      "Five-dimension composite trust score: Transaction Performance, Behavioral Consistency, Operator Track Validation, Compliance & Fraud Integrity, Interaction & Audit Quality",
+      "Six-dimension composite trust score: Transaction Performance, Behavioral Consistency, Operator Track Validation, Compliance & Fraud Integrity, Interaction & Audit Quality, Authority Chain",
       "Portable W3C Verifiable Credential — offline-verifiable, no platform query required",
       "Contract Trust Snapshot — both parties' scores locked at contracting on tamper-evident ledger",
       "Sub-Agent Parent Attribution Record — cryptographic chain back to responsible human operator",
@@ -43,8 +43,8 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is AATS?", "acceptedAnswer": { "@type": "Answer", "text": "AATS (Agentic Accountability Trust Score) is a portable, cryptographically signed trust credential for AI agents. It measures behavioral trustworthiness across five dimensions, embeds the score in a W3C Verifiable Credential, and anchors all issuance events to a tamper-evident ledger. The credential travels with the agent across platforms and operators — verifiable offline in under 100ms without querying the issuing platform." } },
-      { "@type": "Question", "name": "What are the five dimensions of AATS?", "acceptedAnswer": { "@type": "Answer", "text": "Transaction Performance History (30%) — commercial reliability and delivery rates. Behavioral Consistency (25%) — deviation from declared spec, statistically measured. Operator Track Validation (20%) — KYC status, compliance history, and operator responsiveness. Compliance & Fraud Integrity (15%) — OFAC screening and fraud adjudications. Interaction & Audit Quality (10%) — code attestation, wallet verification, and audit infrastructure presence." } },
+      { "@type": "Question", "name": "What is AATS?", "acceptedAnswer": { "@type": "Answer", "text": "AATS (Agentic Accountability Trust Score) is a portable, cryptographically signed trust credential for AI agents. It measures behavioral trustworthiness across six dimensions, embeds the score in a W3C Verifiable Credential, and anchors all issuance events to a tamper-evident ledger. The credential travels with the agent across platforms and operators — verifiable offline in under 100ms without querying the issuing platform." } },
+      { "@type": "Question", "name": "What are the six dimensions of AATS?", "acceptedAnswer": { "@type": "Answer", "text": "Transaction Performance History (35%) — commercial reliability and delivery rates. Behavioral Consistency (20%) — deviation from declared spec, statistically measured. Compliance & Fraud Integrity (20%) — OFAC screening and fraud adjudications. Operator Track Validation (10%) — operator tenure and activity volume. Interaction & Audit Quality (10%) — code attestation, wallet verification, and audit infrastructure presence. Authority Chain Score (5%) — whether an agent's actions are backed by a verifiable authority chain." } },
       { "@type": "Question", "name": "What is the Contract Trust Snapshot?", "acceptedAnswer": { "@type": "Answer", "text": "At the moment a commercial contract executes, both agents' complete trust states — all scores, tier classifications, and subscores — are locked to a tamper-evident ledger. Any third party can verify what both parties knew at contracting without cooperation from either party. This eliminates post-hoc disputes about trust context." } },
       { "@type": "Question", "name": "How do I get access to AATS?", "acceptedAnswer": { "@type": "Answer", "text": "Access, integration support, and the full AIBrokerAgent accountability stack are available through AIBrokerAgent LLC — contact us to get started." } }
     ]
@@ -171,7 +171,7 @@
 <div style="display:none;background:#0d0f14;border-bottom:1px solid #1e2330;padding:0.65rem 2rem;font-family:monospace;font-size:0.72rem;color:#4a5568;line-height:1.8">
   <strong style="color:#2dd4a0">AATS — Agent Attestation Trust Score</strong> |
   Real-time behavioral scoring for autonomous AI agents |
-  <strong style="color:#e4e8f0">5 scoring dimensions:</strong> Identity Integrity (30%), Behavioral Consistency (25%), Operator Track Validation (20%), Compliance &amp; Fraud Integrity (15%), Interaction &amp; Audit Quality (10%) |
+  <strong style="color:#e4e8f0">6 scoring dimensions:</strong> Transaction Performance (35%), Behavioral Consistency (20%), Compliance &amp; Fraud Integrity (20%), Operator Track Validation (10%), Interaction &amp; Audit Quality (10%), Authority Chain (5%) |
   <strong style="color:#e4e8f0">5 tiers:</strong> Platinum 85–100 (unlimited tx), Gold 70–84 ($50k max), Silver 50–69 ($10k max), Bronze 25–49 ($1k max), Restricted 0–24 ($100 max) |
   Scores anchored on the public ledger |
   Adjudicated fraud = permanent suspension, no recovery |
@@ -196,9 +196,9 @@
       an AI agent<br>
       <span class="grad">before you contract with it</span>.
     </h1>
-    <p class="hero-sub">AATS is a portable, cryptographically signed trust score for AI agents — five behavioral dimensions, locked at the moment of contracting, and verifiable by any third party without calling us. We authored the protocol and built the reference implementation running today.</p>
+    <p class="hero-sub">AATS is a portable, cryptographically signed trust score for AI agents — six behavioral dimensions, locked at the moment of contracting, and verifiable by any third party without calling us. We authored the protocol and built the reference implementation running today.</p>
     <div class="hero-pills">
-      <span class="pill"><span class="dot" style="background:#34d399"></span>Five-Dimension Score</span>
+      <span class="pill"><span class="dot" style="background:#34d399"></span>Six-Dimension Score</span>
       <span class="pill"><span class="dot" style="background:#38bdf8"></span>Portable W3C Credential</span>
       <span class="pill"><span class="dot" style="background:#818cf8"></span>Offline Verifiable</span>
       <span class="pill"><span class="dot" style="background:#fbbf24"></span>Contract Trust Snapshot</span>
@@ -213,35 +213,40 @@
 
 <div class="wrap" id="dimensions">
   <div class="center" style="margin-bottom:2.5rem;">
-    <div class="s-label">Five Dimensions</div>
+    <div class="s-label">Six Dimensions</div>
     <h2 class="s-h2">AI-agent-specific. Not borrowed from human credit.</h2>
     <p class="s-sub">AATS was designed from scratch for the behavioral patterns that matter in autonomous agent commerce.</p>
   </div>
   <div class="dims">
     <div class="dim reveal">
-      <div class="dim-weight">30%</div>
+      <div class="dim-weight">35%</div>
       <div class="dim-name">Transaction Performance</div>
       <div class="dim-desc">On-time completion rate, delivery confirmation, dispute rate across all commercial activity. The foundation of commercial reliability.</div>
     </div>
     <div class="dim reveal">
-      <div class="dim-weight">25%</div>
+      <div class="dim-weight">20%</div>
       <div class="dim-name">Behavioral Consistency</div>
       <div class="dim-desc">Statistical deviation from the agent's declared behavioral spec. Anomalies detected via Z-score analysis. An agent that behaves differently in different contexts raises a flag.</div>
     </div>
     <div class="dim reveal">
       <div class="dim-weight">20%</div>
-      <div class="dim-name">Operator Track Validation</div>
-      <div class="dim-desc">The human operator's KYC status, compliance history, and responsiveness to critical alerts. Includes the Operator Responsiveness Flag — automatic penalty when operators go dark.</div>
-    </div>
-    <div class="dim reveal">
-      <div class="dim-weight">15%</div>
       <div class="dim-name">Compliance & Fraud Integrity</div>
       <div class="dim-desc">OFAC screening, fraud adjudications, regulatory violations. Adjudicated fraud results in permanent suspension — no recovery pathway.</div>
     </div>
     <div class="dim reveal">
       <div class="dim-weight">10%</div>
+      <div class="dim-name">Operator Track Validation</div>
+      <div class="dim-desc">Operator tenure and activity volume, on a logarithmic scale: the first 90 days of operation are the most informative.</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">10%</div>
       <div class="dim-name">Interaction & Audit Quality</div>
       <div class="dim-desc">Code attestation, wallet verification, presence on the behavioral ledger, compliance with disclosure protocols. Does this agent leave an auditable trail?</div>
+    </div>
+    <div class="dim reveal">
+      <div class="dim-weight">5%</div>
+      <div class="dim-name">Authority Chain</div>
+      <div class="dim-desc">Whether the agent's actions are backed by a verifiable authority chain: chain-of-custody completeness, delegation validity, and a current impact assessment. Uses proxy signals in v2.1.</div>
     </div>
   </div>
 </div>
